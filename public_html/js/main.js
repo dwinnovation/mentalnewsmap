@@ -19,8 +19,6 @@ function initState() {
 }
 
 function showArticle() {
-    // activate "game" tab:
-    $('#tabnav a[href="#game"]').tab('show');
     // select random article from remaining:
     var i = Math.floor(Math.random() * state.remainingArticles.length);
     // extract and move to currentArticle
@@ -36,12 +34,15 @@ function showArticle() {
  * @param state
  */
 function switchGameState(state) {
+    console.log("switching game state to " + state);
     switch (state) {
     case 'start':
         initState();
+        $('#tabnav a[href="#start"]').tab('show');
         break;
     case 'game':
         showArticle();
+        $('#tabnav a[href="#game"]').tab('show');
         break;
     case 'result':
         // TODO
@@ -91,9 +92,16 @@ function initJumboStart() {
     });
 }
 
+function initJumboFinish() {
+    $('#playagain').click(function(){
+        switchGameState('start');
+    });
+}
+
 $( document ).ready(function(){
     // add code to run after page load here
     initJumboStart();
+    initJumboFinish();
     
     // start the game:
     switchGameState('start');
