@@ -110,6 +110,9 @@ html,body {
 #finish .resultoverview .article.template .bg-image {
     background: url(http://www.dw.de/image/0,,17859820_303,00.jpg) center center;
 }
+#finish .headline {
+    font-size: 1.5em;
+}
 .article .text {
     position: relative;
     color: white;
