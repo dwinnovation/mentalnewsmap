@@ -26,6 +26,13 @@ html,body {
     width:100%;
     height:500px;
 }
+#gamecontainer .largebutton{
+    padding-top: 15px;
+}
+.largebutton.nopad{
+    padding-left:0;
+    padding-right:0;
+}
 #picture{
     height: 322px!important;
     width:50%!important;
