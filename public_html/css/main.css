@@ -54,6 +54,12 @@ html,body {
 #start .row .centered {
     padding-top: 150px;
 }
+#progress {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
 #resultMap{
     height: 322px!important;
     width:100%!important;
