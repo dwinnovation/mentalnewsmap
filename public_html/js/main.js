@@ -25,6 +25,10 @@ function showArticle() {
     var i = Math.floor(Math.random() * state.remainingArticles.length);
     // extract and move to currentArticle
     state.currentArticle = state.remainingArticles.splice(i, 1);
+    //Initialize a new mapObj with the articles position for calculating the distance later
+    p2 = new google.maps.LatLng(state.currentArticle[0].latitude, state.currentArticle[0].longitude);
+    //Show the articles Picture
+    $('#picture img').attr('src',state.currentArticle[0].imageUrl);
 }
 
 /**
