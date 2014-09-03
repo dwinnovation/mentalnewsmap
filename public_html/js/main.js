@@ -208,7 +208,7 @@ function updateEndResults() {
     });
     if (typeof (state.results) !== 'undefined') {
         $('.points').text(state.points);
-        var bounds=[]; // Map boundaries
+        var bounds = []; // Map boundaries
         $.each(state.results, function(index, point) {
             endResultMap.addMarker({
                 lat: point.p1.lat(),
@@ -231,6 +231,10 @@ function updateEndResults() {
         endResultMap.fitLatLngBounds(bounds);
     }
 }
+$('#link-twitter').click(function() {
+    var text='Ich habe ' + state.points + ' von 500 Punkten bei #TheMentalNewsMap erreicht. Weißt du mehr?';
+    window.location.href='http://twitter.com/share?text='+encodeURIComponent(text)+'&url=http://bit.ly/codebeatspaper"';
+});
 
 $(document).ready(function() {
     // add code to run after page load here
@@ -245,6 +249,6 @@ $(document).ready(function() {
     easter_egg.load();
 
     // start the game:
-     switchGameState('start');
+    switchGameState('start');
 //    switchGameState('finish');
 });
