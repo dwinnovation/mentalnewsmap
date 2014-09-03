@@ -4,7 +4,7 @@ $('#tabnav a').click(function (e) {
   $(this).tab('show')
 })
 
-var state {};
+var state = {};
 
 /**
  * reset the game state:
