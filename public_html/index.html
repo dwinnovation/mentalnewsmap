@@ -57,7 +57,7 @@
         <div class="tab-content" id="maincontent">
             <div class="jumbotron tab-pane active" id="start">
                 <div class="row">
-                    
+
                     <div class="col-md-4 col-md-offset-4 centered">
                         <select id="choosecategory" class="form-control">
                             <option value="">Wähle deine Kategorie</option>
@@ -72,14 +72,14 @@
             <div class="jumbotron tab-pane" id="game">
                 <h4>Wo hat dieses Ereignis stattgefunden?</h4>
                 <div id="gamecontainer">
-                    <div class="col-md-6" id="picture"><img src="http://placehold.it/500x500" alt="Picture"/></div>
+                    <div class="col-md-6" id="picture"><img src="http://placehold.it/500x322" alt="Picture"/></div>
                     <div class="col-md-6" id="map"></div>
                     <div class="col-md-6"></div>
                     <div class="col-md-6"><button class="btn btn-primary center-block" data-toggle="modal" data-target="#myModal"  id="submitguess"><i class="fa fa-gamepad fa-2x"></i> Submit my guess!</button></div>
                     <div class="col-md-12" id="clickposition">
                     </div>
                 </div>
-                
+
                 <!-- Modal Result Overlay -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -91,6 +91,7 @@
                             <div class="modal-body">
                                 <p><span id="yourPosition">Deine Antwort <img src="img/marker_pink.png" alt="Deine Position"/></span> war <strong><span id="distanceAway"></span>km</strong> vom <span id="shownPosition">tatsächlichen Ereignis<img src="img/marker_blue.png" alt="Ereignisposition"/></span> entfernt. Du erhältst <strong><span id="overlayPoints"></span> Punkte.</strong></p>
                                 <div id="resultMap"></div>
+                                <div id="currentResultArticle"></div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Next</button>
@@ -114,9 +115,9 @@
                     <!-- hidden, used as a template when creating finish page dynamically -->
                     <div class="article template">
                         <div class="text">
-                           <span class="headline">Gouverneur schickt Nationalgarde</span>
-                           <span class="teasertext">Ferguson kommt nicht zur Ruhe. Seit ein weißer Polizist einen schwarzen tenager erschoss, kommt es in der Stadt im US-Bundesstaat Missouri zu gewaltsamen Ausschreitungen. Jetzt soll die Nationalgarde für Ordnung sorgen.</span>
-                           <a class="more" href="http://www.dw.de/"><span class="glyphicon glyphicon-chevron-right"></span> Zum Artikel</a>
+                            <span class="headline">Gouverneur schickt Nationalgarde</span>
+                            <span class="teasertext">Ferguson kommt nicht zur Ruhe. Seit ein weißer Polizist einen schwarzen tenager erschoss, kommt es in der Stadt im US-Bundesstaat Missouri zu gewaltsamen Ausschreitungen. Jetzt soll die Nationalgarde für Ordnung sorgen.</span>
+                            <a class="more" href="http://www.dw.de/"><span class="glyphicon glyphicon-chevron-right"></span> Zum Artikel</a>
                         </div>
                         <div class="bg-image"></div>
                     </div>
@@ -141,17 +142,21 @@
 
     <!-- Piwik -->
     <script type="text/javascript">
-     var _paq = _paq || [];
-        _paq.push(["trackPageView"]);
-        _paq.push(["enableLinkTracking"]);
+            var _paq = _paq || [];
+            _paq.push(["trackPageView"]);
+            _paq.push(["enableLinkTracking"]);
 
-    (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.eumssi.eu/";
-        _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "14"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-    })();
+            (function() {
+                var u = (("https:" == document.location.protocol) ? "https" : "http") + "://piwik.eumssi.eu/";
+                _paq.push(["setTrackerUrl", u + "piwik.php"]);
+                _paq.push(["setSiteId", "14"]);
+                var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+                g.type = "text/javascript";
+                g.defer = true;
+                g.async = true;
+                g.src = u + "piwik.js";
+                s.parentNode.insertBefore(g, s);
+            })();
     </script>
     <!-- /Piwik -->
 

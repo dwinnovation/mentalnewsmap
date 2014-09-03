@@ -1,5 +1,5 @@
 // enable tab navigation
-$('#tabnav a').click(function (e) {
+$('#tabnav a').click(function(e) {
   e.preventDefault()
   $(this).tab('show')
 })
@@ -48,7 +48,7 @@ function showArticle() {
     //Initialize a new mapObj with the articles position for calculating the distance later
     p2 = new google.maps.LatLng(state.currentArticle[0].latitude, state.currentArticle[0].longitude);
     //Show the articles Picture
-    $('#picture img').attr('src',state.currentArticle[0].imageUrl);
+    $('#picture img').attr('src', state.currentArticle[0].imageUrl);
 }
 
 function showFinish() {
@@ -61,7 +61,7 @@ function showFinish() {
     // remove previous results:
     $('#finish .resultoverview .article').not('.template').remove();
     // create article divs for all answers
-    $.each(state.answeredArticles, function(i, art){
+    $.each(state.answeredArticles, function(i, art) {
         console.log("generating one clone");
         // clone template div:
         var div = $('#finish .resultoverview .article.template').clone().removeClass('template');
@@ -75,7 +75,22 @@ function showFinish() {
         $('#finish .resultoverview').append(div);
     });
 }
-
+function renderArticle(article, domObjectId) { 
+    $('#finish .resultoverview .article.template').hide();
+    // remove previous results:
+    $('#finish .resultoverview .article').not('.template').remove();
+    console.log("generating Article: "+article[0].articleTitle+" and rendering to " + domObjectId);
+    // clone template div:
+    var div = $('#finish .resultoverview .article.template').clone().removeClass('template');
+    // fill text fields:
+    div.find('.text .headline').text(article[0].articleTitle);
+    div.find('.text .teasertext').text(article[0].teaser);
+    div.find('.text a.more').prop('href', article[0].articleUrl);
+    div.find('.bg-image').css('background', 'url(' + article[0].imageUrl + ') center center');
+    // append to selected domObj:
+    div.show();
+    $(domObjectId).append(div);
+}
 /**
  * Main game workflow function
  * @param state
@@ -111,20 +126,20 @@ function switchGameState(gameState) {
 function initJumboStart() {
     // extract unique categories from articles:
     var categories = [];
-    $.each(articles, function(index, article){
-        if ($.inArray(article.kategorie, categories)==-1) {
+    $.each(articles, function(index, article) {
+        if ($.inArray(article.kategorie, categories) == -1) {
             categories.push(article.kategorie);
         }
     });
-    
+
     // dynamically generate category options:
-    $.each(categories, function(i, category){
+    $.each(categories, function(i, category) {
         var opt = $('<option/>').val(category).text(category);
         $('#choosecategory').append(opt);
     });
-    
+
     // handle clicks on category selection links:
-    $('#choosecategory').change(function(){
+    $('#choosecategory').change(function() {
         var category = $(this).val();
         // load article (sub-)set into state variable:
         if (!category) {
@@ -134,8 +149,9 @@ function initJumboStart() {
             state.remainingArticles = articles;
         } else {
             // selected category -> filter articles
-            state.remainingArticles = $.grep(articles, function(art){
-                return art.kategorie == category}
+            state.remainingArticles = $.grep(articles, function(art) {
+                return art.kategorie == category
+            }
             );
         }
         // start the gane by switching to state "game"
@@ -144,16 +160,16 @@ function initJumboStart() {
 }
 
 function initJumboFinish() {
-    $('#playagain').click(function(){
+    $('#playagain').click(function() {
         switchGameState('start');
     });
 }
 
-$( document ).ready(function(){
+$(document).ready(function() {
     // add code to run after page load here
     initJumboStart();
     initJumboFinish();
-    
+
     // start the game:
     switchGameState('start');
 });
