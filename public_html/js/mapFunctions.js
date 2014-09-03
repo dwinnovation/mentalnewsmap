@@ -94,6 +94,7 @@ function drawPath(map, p1, p2) {
         strokeOpacity: 1,
         strokeWeight: 4
     });
+    map.fitLatLngBounds([p1, p2]);
     addLine(map);
 }
 //actually shows the path on the map
@@ -104,9 +105,6 @@ function addLine(map) {
 //removes the line on the map
 function removeLine() {
     flightPath.setMap(null);
-}
-function showResults() {
-    
 }
 //Wait for the overlay to load before showing the map
     $('#myModal').on('shown.bs.modal', function() {
@@ -126,20 +124,21 @@ function showResults() {
             overviewMapControl: false
         });
         $('#distanceAway').text(calcDistance(p1, p2));
-//        alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
         drawPath(resultMap, p1, p2);
         resultMap.addMarker({
             lat: p2.lat(),
             lng: p2.lng(),
-            title: 'articlePosition'
+            title: 'articlePosition',
+            icon: "img/marker_blue.png"
         });
         resultMap.addMarker({
             lat: p1.lat(),
             lng: p1.lng(),
-            title: 'clickPosition'
+            title: 'clickPosition',
+            icon: "img/marker_pink.png"
         });
     });
 // Submit button clickHandler
-$('#submitguess').on('click', function(event) {
-    showResults();
+$('#nextButton').on('click', function(event) {
+    $('#resultMap').empty(); //Remove resultMap to get rid of the lines
 });
