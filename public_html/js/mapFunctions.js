@@ -44,19 +44,8 @@ $(document).ready(function() {
 
 
     GMaps.on('click', map.map, function(event) {
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
         mapZoom = map.getZoom();
-        
-        setTimeout("placeMarker()", 600);
-//        map.addMarker({
-//            lat: lat,
-//            lng: lng,
-//            title: 'clickPosition'
-//        });
-        clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
-        p1 = new google.maps.LatLng(clickPosition.lat, clickPosition.lng);
-
+        setTimeout("placeMarker(event)", 600);
     });
 });
 
@@ -68,6 +57,10 @@ function resize() {
 //Places a marker
 function placeMarker() {
     if (mapZoom == map.getZoom()) {
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+        clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
+        p1 = new google.maps.LatLng(clickPosition.lat, clickPosition.lng);
         map.removeMarkers(); //remove existing markers before adding the new one
         map.addMarker({
             lat: p1.lat(),
