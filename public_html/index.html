@@ -4,7 +4,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,13 +23,6 @@
 
         <!-- Custom Fonts -->
         <link href="css/vendor/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -41,6 +33,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>very outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <div id="wrapper">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Example row of columns -->
@@ -100,12 +93,14 @@
                 </div>
             </div>
             <div class="jumbotron tab-pane" id="finish">
-                <h1>Gesamtergebnis</h1>
-                <div class="col-md-3 socialconnector">
-                    social
+                <div class="col-md-offset-1 col-md-2 socialconnector text-center text-muted">
+                    <span class="text-muted">Teile dein Ergebnis:</span>
+                    <div class="shareicons">
+                        <i id="link-twitter" class="linkicon fa fa-twitter fa-3x"></i>
+                    </div>
                 </div>
-                <div class="col-md-9 resultoverview">
-                    Dein Ergebnis: <span class="points">50</span> von <span class="totalpoints">500</span> Punkten!
+                <div class="col-md-offset-1 col-md-6 resultoverview">
+                    <span class="headline">Dein Ergebnis: <span class="points">50</span> von <span class="totalpoints">500</span> Punkten!</span>
                     <button class="btn btn-primary pull-right" id="playagain"><i class="fa fa-repeat"></i> Nochmal!</button>
                     <div id="endResultMap"></div>
                     <!-- hidden, used as a template when creating finish page dynamically -->
@@ -121,14 +116,13 @@
             </div>
         </div>
 
-        <div class="container" id="footer">
-            <hr>
+        <div id="footer">
             <footer id="credits">
-                <p>&copy; 2014 <a href="http://www.dw.de" target="_blank">Deutsche Welle</a> | Neue Medien | <a href="http://blogs.dw.de/innovation" target="_blank">Innovation Projects</a> | Dieses Projekt ist im Rahmen des <a href="http://scoopcamp.de/hackathon/" target="_blank">Scoopcamp Hackathons 2014</a> entstanden</p></p>
+                &copy; 2014 <a href="http://www.dw.de" target="_blank">Deutsche Welle</a> | Neue Medien | <a href="http://blogs.dw.de/innovation" target="_blank">Innovation Projects</a> | Dieses Projekt ist im Rahmen des <a href="http://scoopcamp.de/hackathon/" target="_blank">Scoopcamp Hackathons 2014</a> entstanden
             </footer>
         </div> <!-- /container -->
+        </div> <!-- /wrapper -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
-
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/data/Scoopcamp Hackathon Data 2014 - DW Artikel.js"></script>
         <script src="js/main.js"></script>
