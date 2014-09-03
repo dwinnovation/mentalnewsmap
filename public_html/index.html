@@ -80,21 +80,17 @@
                 </div>
 
                 <!-- Modal Result Overlay -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Result</h4>
-                            </div>
                             <div class="modal-body">
-                                <p><span id="yourPosition">Deine Antwort <img src="img/marker_pink.png" alt="Deine Position"/></span> war <strong><span id="distanceAway"></span>km</strong> vom <span id="shownPosition">tatsächlichen Ereignis<img src="img/marker_blue.png" alt="Ereignisposition"/></span> entfernt. Du erhältst <strong><span id="overlayPoints"></span> Punkte.</strong></p>
+
+                                <p><span id="yourPosition">Deine Antwort <img src="img/marker_pink.png" alt="Deine Position" /></span> war <strong><span id="distanceAway"></span>km</strong> vom <span id="shownPosition">tatsächlichen Ereignis <img src="img/marker_blue.png" alt="Ereignisposition" /></span> entfernt. Du erhältst <strong><span id="overlayPoints"></span> Punkte.</strong></p>
                                 <div id="resultMap"></div>
                                 <div id="currentResultArticle"></div>
+                                <p><button id="nextButton" type="button" class="btn btn-primary" data-dismiss="modal">Nächste Frage</button></p>
                             </div>
-                            <div class="modal-footer">
-                                <button id="nextButton" type="button" class="btn btn-primary" data-dismiss="modal">Nächste Frage</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
