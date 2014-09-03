@@ -2,8 +2,8 @@
 
 $(document).ready(function () {
     // not sure how one can deduce the location of the script (that is included in a page) and not that of the including page.
-    var url = 'http://nc';
-    /*var url = location.href.substring(0, location.href.lastIndexOf('/') + 1);*/
+//    var url = 'http://nc';
+    var url = location.href.substring(0, location.href.lastIndexOf('/') + 1)+'js/vendor/nyan.js';
 
     var shiftPressed = 0;   // counter of key presses
     var shiftMax = 5;   // when pressed that many times sequentially, start animation
