@@ -1,7 +1,7 @@
 // enable tab navigation
 $('#tabnav a').click(function(e) {
-    e.preventDefault()
-    $(this).tab('show')
+  e.preventDefault()
+  $(this).tab('show')
 })
 
 var state = {};
@@ -95,24 +95,28 @@ function renderArticle(article, domObjectId) {
  * Main game workflow function
  * @param state
  */
-function switchGameState(state) {
-    console.log("switching game state to " + state);
-    switch (state) {
-        case 'start':
-            initState();
-            $('#tabnav a[href="#start"]').tab('show');
-            break;
-        case 'game':
+function switchGameState(gameState) {
+    console.log("switching game state to " + gameState);
+    switch (gameState) {
+    case 'start':
+        initState();
+        $('#tabnav a[href="#start"]').tab('show');
+        break;
+    case 'game':
+        if (state.answeredArticles.length < 5) {
             showArticle();
             $('#tabnav a[href="#game"]').tab('show');
-            break;
-        case 'result':
-            // TODO
-            break;
-        case 'finish':
-            showFinish();
-            $('#tabnav a[href="#finish"]').tab('show');
-            break;
+        } else {
+            switchGameState('finish');
+        }
+        break;
+    case 'result':
+        // TODO
+        break;
+    case 'finish':
+        showFinish();
+        $('#tabnav a[href="#finish"]').tab('show');
+        break;
     }
 }
 
