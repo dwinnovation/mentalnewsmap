@@ -16,6 +16,8 @@
 var clickPosition; //Holds the current lat,lng for the clicked point on the map
 var p1; //Position the player clicked
 var p2; //Position where the picture was taken
+var location; //current position
+var mapZoom; //Saves the current map zoom to prevent doubleclick-marker-placement
 
 $(document).ready(function() {
     //Initialize Map
@@ -23,7 +25,7 @@ $(document).ready(function() {
         el: '#map',
         lat: 72.91963546581482,
         lng: -75.05859375,
-        zoom:2,
+        zoom: 2,
         zoomControl: true,
         zoomControlOpt: {
             style: 'SMALL',
@@ -37,30 +39,13 @@ $(document).ready(function() {
 
     // Marker added
     GMaps.on('marker_added', map, function(marker) {
-        $('#clickposition').html('<li>'+ marker.title + ' Lat:' + marker.getPosition().lat() + ' Lng:' + marker.getPosition().lng() + '</li>');
+        $('#clickposition').html('<li>' + marker.title + ' Lat:' + marker.getPosition().lat() + ' Lng:' + marker.getPosition().lng() + '</li>');
     });
 
+
     GMaps.on('click', map.map, function(event) {
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-        map.removeMarkers();
-        map.addMarker({
-            lat: lat,
-            lng: lng,
-            title: 'clickPosition'
-        });
-        clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
-        p1 = new google.maps.LatLng(clickPosition.lat, clickPosition.lng);
-        
-        //Move the next few lines to the getResults()-function so the paths
-        //and distances are only shown when the user sees his results
-        drawPath(p1, p2);
-        map.addMarker({
-            lat: p2.lat(),
-            lng: p2.lng(),
-            title: 'articlePosition'
-        });
-        alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
+        mapZoom = map.getZoom();
+        setTimeout("placeMarker(event)", 600);
     });
 });
 
@@ -69,7 +54,21 @@ function resize() {
     mapObj = map;
     google.maps.event.trigger(mapObj.map, 'resize');
 }
-
+//Places a marker
+function placeMarker() {
+    if (mapZoom == map.getZoom()) {
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+        clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
+        p1 = new google.maps.LatLng(clickPosition.lat, clickPosition.lng);
+        map.removeMarkers(); //remove existing markers before adding the new one
+        map.addMarker({
+            lat: p1.lat(),
+            lng: p1.lng(),
+            title: 'clickPosition'
+        });
+    }
+}
 //Register show map tab event
 $('a[href="#game"]').on('shown.bs.tab', function(e) {
     resize();
@@ -79,13 +78,22 @@ $('a[href="#game"]').on('shown.bs.tab', function(e) {
 function calcDistance(p1, p2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
 }
-function drawPath(p1,p2){
-      path = [[p1.lat(), p1.lng()], [p2.lat(), p2.lng()]];
+function drawPath(p1, p2) {
+    path = [[p1.lat(), p1.lng()], [p2.lat(), p2.lng()]];
 
-      map.drawPolyline({
+    map.drawPolyline({
         path: path,
         strokeColor: '#131540',
         strokeOpacity: 1,
         strokeWeight: 4
-      });
+    });
+}
+function showResults() {
+    drawPath(p1, p2);
+    map.addMarker({
+        lat: p2.lat(),
+        lng: p2.lng(),
+        title: 'articlePosition'
+    });
+    alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
 }
