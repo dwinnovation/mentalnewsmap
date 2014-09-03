@@ -39,11 +39,6 @@ $(document).ready(function() {
         overviewMapControl: false
     });
 
-    // Marker added
-    GMaps.on('marker_added', map, function(marker) {
-        $('#clickposition').html('<li>' + marker.title + ' Lat:' + marker.getPosition().lat() + ' Lng:' + marker.getPosition().lng() + '</li>');
-    });
-
     // Click handler for the map
     GMaps.on('click', map.map, function(event) {
         position = event.latLng;
@@ -107,6 +102,7 @@ function addLine(map) {
 function removeLine() {
     flightPath.setMap(null);
 }
+//Showing Result overlay
 //Wait for the overlay to load before showing the map
     $('#myModal').on('shown.bs.modal', function() {
         resultMap = new GMaps({
@@ -138,6 +134,8 @@ function removeLine() {
             title: 'clickPosition',
             icon: "img/marker_pink.png"
         });
+        //Render current Article
+        renderArticle(state.currentArticle, '#currentResultArticle')
     });
 // Submit button clickHandler
 $('#nextButton').on('click', function(event) {
