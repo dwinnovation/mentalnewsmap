@@ -12,6 +12,7 @@ var state = {};
 function initState() {
     state = {
         points: 0,
+        currentArticle: {},
         remainingArticles: [],
         answeredArticles: [],
     };
@@ -20,8 +21,10 @@ function initState() {
 function showArticle() {
     // activate "game" tab:
     $('#tabnav a[href="#game"]').tab('show');
-    // load question to view:
-    // TODO
+    // select random article from remaining:
+    var i = Math.floor(Math.random() * state.remainingArticles.length);
+    // extract and move to currentArticle
+    state.currentArticle = state.remainingArticles.splice(i, 1);
 }
 
 /**
@@ -65,7 +68,6 @@ function initJumboStart() {
         );
         $('#start .choosecategory').append(li);
     });
-    
     
     // handle clicks on category selection links:
     $('#start .category a').click(function(){
