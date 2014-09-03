@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var map;
+var map; //The map Obj.
 var clickPosition; //Holds the current lat, lng for the clicked point on the map
 var p1; //Position the player clicked
 var p2; //Position where the picture was taken
@@ -44,7 +44,7 @@ $(document).ready(function() {
         $('#clickposition').html('<li>' + marker.title + ' Lat:' + marker.getPosition().lat() + ' Lng:' + marker.getPosition().lng() + '</li>');
     });
 
-
+    // Click handler for the map
     GMaps.on('click', map.map, function(event) {
         position = event.latLng;
         mapZoom = map.getZoom();
@@ -114,6 +114,8 @@ function showResults() {
     });
     alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
 }
-$('a[href="#result"]').on('shown.bs.tab', function(e) {
+
+// Submit button clickHandler
+$('#submitguess').on('click', function(event) {
     showResults();
 });
