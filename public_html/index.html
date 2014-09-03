@@ -15,8 +15,9 @@
         <meta name="author" content="Deutsche Welle (www.dw.de)" />
         <meta name="language" content="de_DE" />
         <meta name="keywords" content="The Mental News Map" />
-        <title>The Mental News Map</title>
+        <title>NewsGame: The Mental News Map</title>
 
+        <link rel="shortcut icon" type="image/x-icon" href="http://www.dw-world.de/favicon.ico" />
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/ui.css">
@@ -73,6 +74,8 @@
                 <div id="gamecontainer">
                     <div class="col-md-6" id="picture"><img src="http://placehold.it/500x500" alt="Picture"/></div>
                     <div class="col-md-6" id="map"></div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6"><button class="btn btn-primary center-block" id="submitguess"><i class="fa fa-gamepad fa-2x"></i> Submit my guess!</button></div>
                     <div class="col-md-12" id="clickposition">
                     </div>
                 </div>
@@ -104,8 +107,8 @@
 
         <div class="container">
             <hr>
-            <footer>
-                <p>&copy; 2014 Deutsche Welle</p>
+            <footer id="credits">
+                <p>&copy; 2014 <a href="http://www.dw.de" target="_blank">Deutsche Welle</a> | Neue Medien | <a href="http://blogs.dw.de/innovation" target="_blank">Innovation Projects</a> | Dieses Projekt ist im Rahmen des <a href="http://scoopcamp.de/hackathon/" target="_blank">Scoopcamp Hackathons 2014</a> entstanden</p></p>
             </footer>
         </div> <!-- /container -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
@@ -115,4 +118,22 @@
         <script src="js/main.js"></script>
         <script src="js/mapFunctions.js" type="text/javascript"></script>
     </body>
+
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+     var _paq = _paq || [];
+        _paq.push(["trackPageView"]);
+        _paq.push(["enableLinkTracking"]);
+
+    (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.eumssi.eu/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "14"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+    </script>
+    <!-- /Piwik -->
+
 </html>

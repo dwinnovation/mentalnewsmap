@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var clickPosition; //Holds the current lat,lng for the clicked point on the map
+var map; //The map Obj.
+var clickPosition; //Holds the current lat, lng for the clicked point on the map
 var p1; //Position the player clicked
 var p2; //Position where the picture was taken
 var location; //current position
 var mapZoom; //Saves the current map zoom to prevent doubleclick-marker-placement
+var flightPath; //Saves the direct line between the two points
 
 $(document).ready(function() {
     //Initialize Map
@@ -42,9 +44,9 @@ $(document).ready(function() {
         $('#clickposition').html('<li>' + marker.title + ' Lat:' + marker.getPosition().lat() + ' Lng:' + marker.getPosition().lng() + '</li>');
     });
 
-
+    // Click handler for the map
     GMaps.on('click', map.map, function(event) {
-        position=event.latLng;
+        position = event.latLng;
         mapZoom = map.getZoom();
         setTimeout("placeMarker(position)", 600);
     });
@@ -63,6 +65,9 @@ function placeMarker(position) {
         clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
         p1 = new google.maps.LatLng(clickPosition.lat, clickPosition.lng);
         map.removeMarkers(); //remove existing markers before adding the new one
+        if (typeof (flightPath) !== 'undefined') {
+            removeLine(); //remove existing lines on the map
+        }
         map.addMarker({
             lat: p1.lat(),
             lng: p1.lng(),
@@ -79,15 +84,26 @@ $('a[href="#game"]').on('shown.bs.tab', function(e) {
 function calcDistance(p1, p2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
 }
-function drawPath(p1, p2) {
-    path = [[p1.lat(), p1.lng()], [p2.lat(), p2.lng()]];
 
-    map.drawPolyline({
+//creates a new path to draw
+function drawPath(p1, p2) {
+    path = [p1, p2];
+    flightPath = new google.maps.Polyline({
         path: path,
         strokeColor: '#131540',
         strokeOpacity: 1,
         strokeWeight: 4
     });
+    addLine();
+}
+//actually shows the path on the map
+function addLine() {
+    flightPath.setMap(map.map);
+}
+
+//removes the line on the map
+function removeLine() {
+    flightPath.setMap(null);
 }
 function showResults() {
     drawPath(p1, p2);
@@ -98,3 +114,8 @@ function showResults() {
     });
     alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
 }
+
+// Submit button clickHandler
+$('#submitguess').on('click', function(event) {
+    showResults();
+});
