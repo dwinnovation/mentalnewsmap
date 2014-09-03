@@ -52,6 +52,14 @@ $(document).ready(function() {
         clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
         p1 = new google.maps.LatLng(clickPosition.lat, clickPosition.lng);
         
+        //Move the next few lines to the getResults()-function so the paths
+        //and distances are only shown when the user sees his results
+        drawPath(p1, p2);
+        map.addMarker({
+            lat: p2.lat(),
+            lng: p2.lng(),
+            title: 'articlePosition'
+        });
         alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
     });
 });
@@ -67,9 +75,17 @@ $('a[href="#game"]').on('shown.bs.tab', function(e) {
     resize();
 });
 
-
-
 //calculates distance between two points in km's
 function calcDistance(p1, p2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+}
+function drawPath(p1,p2){
+      path = [[p1.lat(), p1.lng()], [p2.lat(), p2.lng()]];
+
+      map.drawPolyline({
+        path: path,
+        strokeColor: '#131540',
+        strokeOpacity: 1,
+        strokeWeight: 4
+      });
 }
