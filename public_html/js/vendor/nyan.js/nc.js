@@ -1,9 +1,9 @@
 // put this in url field: javascript:var s=document.createElement('script');s.src='http://nc/nc.js';document.body.appendChild(s);void(0);
 
-$(document).ready(function () {
+$(document).ready(function() {
     // not sure how one can deduce the location of the script (that is included in a page) and not that of the including page.
 //    var url = 'http://nc';
-    var url = location.href.substring(0, location.href.lastIndexOf('/') + 1)+'js/vendor/nyan.js';
+    var url = location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'js/vendor/nyan.js';
 
     var shiftPressed = 0;   // counter of key presses
     var shiftMax = 5;   // when pressed that many times sequentially, start animation
@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('body').append('<audio id="sound" preload="auto"><source src="' + url + '/nyancat.ogg" type="audio/ogg"/><source src="' + url + '/nyancat.mp3" type="audio/mp3" /></audio>');
     var sound = $("#sound").get(0);
 
-    var nyancat_reset = function () {
+    var nyancat_reset = function() {
         //no sound control if not in HTML5
         if (sound.volume != undefined) {
             sound.pause();
@@ -37,10 +37,11 @@ $(document).ready(function () {
         else {
             $('body').append('<embed id="sound-ie" src="' + url + '/nyancat.mp3" type="application/x-mplayer2" autostart="true" playcount="true" loop="false" height="0" width="0">');
         }
-        img.show().animate({ "left": "+=" + parseInt($("body").width() + 100) + "px" }, animationDuration, nyancat_reset);
-    };
+        img.show().animate({"left": "+=" + parseInt($("body").width() + 100) + "px"}, animationDuration, nyancat_reset);
+    }
+    ;
 
-    $("body").keyup(function (event) {
+    $("body").keyup(function(event) {
         if (event.which == keyCode) {
             shiftPressed++;
             event.preventDefault();
@@ -53,13 +54,13 @@ $(document).ready(function () {
         }
     });
 
-    $("#sound").on('timeupdate', function () {
+    $("#sound").on('timeupdate', function() {
         var vol = 1,
-        interval = 200;
+                interval = 200;
         if (Math.floor(sound.currentTime) == 6) {
             //console.log("now starting to decrease volume ...");
             if (sound.volume == 1) {
-                var intervalID = setInterval(function () {
+                var intervalID = setInterval(function() {
                     if (vol > 0) {
                         vol -= 0.10;
                         if (vol >= 0.10)
@@ -68,7 +69,7 @@ $(document).ready(function () {
                         clearInterval(intervalID);
                     }
                 },
-                interval);
+                        interval);
             }
         }
     });

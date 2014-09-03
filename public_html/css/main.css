@@ -46,7 +46,7 @@ html,body {
     padding-right: 15px;
 }
 #picture{
-    height: 322px!important;
+    height: 330px!important;
     width:50%!important;
     overflow:hidden;
     padding-left:0;
@@ -55,7 +55,7 @@ html,body {
     width:100%;
 }
 #map{
-    height: 322px!important;
+    height: 330px!important;
     width:50%!important;
 }
 
@@ -81,7 +81,7 @@ html,body {
     padding-right: 0;
 }
 #resultMap{
-    height: 322px!important;
+    height: 330px!important;
     width:100%!important;
     margin-bottom: 5px;
 }
