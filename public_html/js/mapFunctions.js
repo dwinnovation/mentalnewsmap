@@ -22,7 +22,9 @@ var mapZoom; //Saves the current map zoom to prevent doubleclick-marker-placemen
 var flightPath; //Saves the direct line between the two points
 var myScore; //The score achieved with the last click
 
+
 $(document).ready(function() {
+$('#submitguess').prop('disabled', true); //prevent modal from opening until user adds a position
     //Initialize Map
     map = new GMaps({
         el: '#map',
@@ -70,6 +72,7 @@ function placeMarker(position) {
             title: 'clickPosition',
             icon: "img/marker_pink.png"
         });
+        $('#submitguess').prop('disabled', false); //enable the submit button
     }
 }
 //Register show map tab event
@@ -144,6 +147,7 @@ function removeLine() {
 // Submit button clickHandler
 $('#nextButton').on('click', function(event) {
     $('#resultMap').empty(); //Remove resultMap to get rid of the lines
+    map.removeMarkers(); //remove the old Marker from the Map
     // save result:
     state.results.push({
         p1: p1,
@@ -155,6 +159,7 @@ $('#nextButton').on('click', function(event) {
     // move current article to set of answered articles
     state.answeredArticles.push(state.currentArticle);
     state.currentArticle = null;
+    $('#submitguess').prop('disabled', true); //Disable the button until the user adds another Marker
     // trigger game workflow for next question/finish
     switchGameState('game');
 });
