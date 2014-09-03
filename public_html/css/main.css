@@ -83,6 +83,7 @@ html,body {
 #resultMap{
     height: 322px!important;
     width:100%!important;
+    margin-bottom: 5px;
 }
 #myModal #yourPosition{
     color:#dd1c77;
@@ -98,8 +99,8 @@ html,body {
     height: 300px!important;
     width:100%!important;
     padding-top: 15px;
-    margin-top: 15px;
-}
+    margin-bottom: 5px;
+    margin-top: 15px;}
 #finish .resultoverview .points,.totalpoints {
     font-weight: bold;
 }
@@ -141,15 +142,6 @@ html,body {
 }
 #finish .resultoverview .article .headline {
     font-size: 1em;
-}
-#finish .resultoverview .article .teasertext {
-    font-size: 0.75em;
-}
-#finish .resultoverview .article .more {
-    font-size: 0.75em;
-}
-#finish .headline {
-    font-size: 1.5em;
 }
 #finish .socialconnector {
     padding-top: 50px;
