@@ -16,8 +16,12 @@
     height: 500px!important;
     width:50%!important;
 }
-#resultmap{
+
+#finish #resultmap{
     background-color: red;
     height: 250px!important;
     width:50%!important;
+}
+#finish .points,.totalpoints {
+    font-weight: bold;
 }
