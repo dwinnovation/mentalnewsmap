@@ -8,19 +8,24 @@ html,body {
     margin: 0;
     height: 100%;
 }
-#maincontent{
-    position: absolute;
-    top: 0;
-    bottom: 50px; /* fixed height for footer - adapt if necessary */
+#wrapper {
+    display: table;
+    height: 100%;
     width: 100%;
 }
-#maincontent #start {
+#maincontent{
+    display: table-row;
     height: 100%;
 }
+#maincontent .jumbotron {
+    height: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
 #footer{
-    position: absolute;
     width: 100%;
-    bottom: 0;
+    padding: 20px;
+    border-top: 1px solid #333;
 }
 #gamecontainer{
     width:100%;
