@@ -15,7 +15,18 @@ a {
 .container {
     margin-right: auto;
     margin-left: auto;
-    padding-top: 3px;
+    padding-top: 12px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+#credits {
+    border-color: #0098FF;
+}
+
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 5px 5px;
 }
