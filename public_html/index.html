@@ -75,8 +75,27 @@
                     <div class="col-md-6" id="picture"><img src="http://placehold.it/500x500" alt="Picture"/></div>
                     <div class="col-md-6" id="map"></div>
                     <div class="col-md-6"></div>
-                    <div class="col-md-6"><button class="btn btn-primary center-block" id="submitguess"><i class="fa fa-gamepad fa-2x"></i> Submit my guess!</button></div>
+                    <div class="col-md-6"><button class="btn btn-primary center-block" data-toggle="modal" data-target="#myModal"  id="submitguess"><i class="fa fa-gamepad fa-2x"></i> Submit my guess!</button></div>
                     <div class="col-md-12" id="clickposition">
+                    </div>
+                </div>
+                
+                <!-- Modal Result Overlay -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Result</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Deine Position ist <span id="distanceAway"></span>km weit weg von der angezeigten Position. Du erhältst: <span id="overlayPoints"></span> Punkte.</p>
+                                <div id="resultMap"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Next</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

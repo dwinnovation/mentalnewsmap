@@ -37,6 +37,7 @@ html,body {
     height: 322px!important;
     width:50%!important;
 }
+
 #start {
     background: url(../img/bg.jpg) bottom center;
     background-size: cover;
@@ -51,6 +52,10 @@ html,body {
 }
 #start .row .centered {
     padding-top: 150px;
+}
+#resultMap{
+    height: 322px!important;
+    width:100%!important;
 }
 #finish .resultoverview .map{
     background-color: red;
