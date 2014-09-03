@@ -71,7 +71,8 @@ function placeMarker(position) {
         map.addMarker({
             lat: p1.lat(),
             lng: p1.lng(),
-            title: 'clickPosition'
+            title: 'clickPosition',
+            icon: "img/marker_pink.png"
         });
     }
 }

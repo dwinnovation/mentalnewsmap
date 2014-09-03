@@ -29,6 +29,7 @@ html,body {
 #picture{
     height: 322px!important;
     width:50%!important;
+    overflow:hidden;
 }
 #picture img{
     width:100%;
