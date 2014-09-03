@@ -29,6 +29,29 @@ function showArticle() {
     $('#picture img').attr('src',state.currentArticle[0].imageUrl);
 }
 
+function showFinish() {
+    // TODO: remove this
+    state.answeredArticles = articles.slice(0, 5);
+    // make sure the template is hidden:
+    $('#finish .resultoverview .article.template').hide();
+    // remove previous results:
+    $('#finish .resultoverview .article').not('.template').remove();
+    // create article divs for all answers
+    $.each(state.answeredArticles, function(i, art){
+        console.log("generating one clone");
+        // clone template div:
+        var div = $('#finish .resultoverview .article.template').clone().removeClass('template');
+        // fill text fields:
+        div.find('.text .headline').text(art.articleTitle);
+        div.find('.text .teasertext').text(art.teaser);
+        div.find('.text a.more').prop('href', art.articleUrl);
+        div.find('.bg-image').css('background', 'url(' + art.imageUrl + ') center center');
+        // append to page:
+        div.show();
+        $('#finish .resultoverview').append(div);
+    });
+}
+
 /**
  * Main game workflow function
  * @param state
@@ -48,7 +71,8 @@ function switchGameState(state) {
         // TODO
         break;
     case 'finish':
-        // TODO
+        showFinish();
+        $('#tabnav a[href="#finish"]').tab('show');
         break;
     }
 }
