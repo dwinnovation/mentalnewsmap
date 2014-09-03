@@ -23,6 +23,12 @@
     height: 322px!important;
     width:100%!important;
 }
+#myModal #yourPosition{
+    color:red;
+}
+#myModal #shownPosition{
+    color:blue;
+}
 #finish .resultoverview .map{
     background-color: red;
     height: 250px!important;
