@@ -49,6 +49,24 @@ function switchGameState(state) {
  * init the "start" jumbotron
  */
 function initJumboStart() {
+    // extract unique categories from articles:
+    var categories = [];
+    $.each(articles, function(index, article){
+        if ($.inArray(article.kategorie, categories)==-1) {
+            categories.push(article.kategorie);
+        }
+    });
+    
+    // dynamically generate category links:
+    $.each(categories, function(index, category){
+        // each element should look like this: <li class="category"><a data-category="Sport">Sport</a></li>
+        var li = $('<li/>').addClass('category').append(
+            $('<a />').data('category', category).text(category)
+        );
+        $('#start .choosecategory').append(li);
+    });
+    
+    
     // handle clicks on category selection links:
     $('#start .category a').click(function(){
         var category = $(this).data('category');
