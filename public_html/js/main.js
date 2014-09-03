@@ -91,20 +91,19 @@ function initJumboStart() {
         }
     });
     
-    // dynamically generate category links:
-    $.each(categories, function(index, category){
-        // each element should look like this: <li class="category"><a data-category="Sport">Sport</a></li>
-        var li = $('<li/>').addClass('category').append(
-            $('<a />').data('category', category).text(category)
-        );
-        $('#start .choosecategory').append(li);
+    // dynamically generate category options:
+    $.each(categories, function(i, category){
+        var opt = $('<option/>').val(category).text(category);
+        $('#choosecategory').append(opt);
     });
     
     // handle clicks on category selection links:
-    $('#start .category a').click(function(){
-        var category = $(this).data('category');
+    $('#choosecategory').change(function(){
+        var category = $(this).val();
         // load article (sub-)set into state variable:
-        if (typeof category == 'undefined') {
+        if (!category) {
+            return;
+        } else if (category == 'any') {
             // all categories -> all articles
             state.remainingArticles = articles;
         } else {
