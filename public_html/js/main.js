@@ -32,11 +32,11 @@ function score(distance) {
         return 0;
     } else {
         // normalize value to range 1..0:
-        var val = (1-((distance-0.1)/100.0));
+        var val = (1 - ((distance - 0.1) / 100.0));
         // apply curve (TODO: balance):
-        var val = val*val;
+        var val = val * val;
         // scale to range 100..0, round up:
-        return Math.ceil(100.0*val);
+        return Math.ceil(100.0 * val);
     }
 }
 
@@ -75,11 +75,11 @@ function showFinish() {
         $('#finish .resultoverview').append(div);
     });
 }
-function renderArticle(article, domObjectId) { 
+function renderArticle(article, domObjectId) {
     $('#finish .resultoverview .article.template').hide();
     // remove previous results:
-    $('#finish .resultoverview .article').not('.template').remove();
-    console.log("generating Article: "+article[0].articleTitle+" and rendering to " + domObjectId);
+    $(domObjectId + ' .article').not('.template').remove();
+    console.log("generating Article: " + article[0].articleTitle + " and rendering to " + domObjectId);
     // clone template div:
     var div = $('#finish .resultoverview .article.template').clone().removeClass('template');
     // fill text fields:

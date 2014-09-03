@@ -135,7 +135,7 @@ function removeLine() {
             icon: "img/marker_pink.png"
         });
         //Render current Article
-        renderArticle(state.currentArticle, '#currentResultArticle')
+        renderArticle(state.currentArticle, '#currentResultArticle');
     });
 // Submit button clickHandler
 $('#nextButton').on('click', function(event) {
