@@ -107,24 +107,36 @@ html,body {
     opacity: 0.5;
     z-index: 0;
 }
-#finish .resultoverview .article.template .bg-image {
-    background: url(http://www.dw.de/image/0,,17859820_303,00.jpg) center center;
-}
-#finish .headline {
-    font-size: 1.5em;
-}
 .article .text {
     position: relative;
     color: white;
     z-index: 2;
-    padding: 15px;
+    padding: 10px;
 }
 .article .text .headline{
     display: block;
     font-size: 1.5em;
     font-weight: bold;
 }
-.article .text .more{
-    margin-left: 15px;
+.article .text .teasertext {
+    margin-righ: 15px;
+}
+.article .text a.more{
     color: white;
+    white-space: nowrap;
+}
+#finish .resultoverview .article.template .bg-image {
+    background: url(http://www.dw.de/image/0,,17859820_303,00.jpg) center center;
+}
+#finish .resultoverview .article .headline {
+    font-size: 1em;
+}
+#finish .resultoverview .article .teasertext {
+    font-size: 0.75em;
+}
+#finish .resultoverview .article .more {
+    font-size: 0.75em;
+}
+#finish .headline {
+    font-size: 1.5em;
 }
