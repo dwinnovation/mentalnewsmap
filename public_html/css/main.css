@@ -11,7 +11,7 @@ html,body {
 #maincontent{
     position: absolute;
     top: 0;
-    bottom: 50px; // fixed height for footer - adapt if necessary
+    bottom: 50px; /* fixed height for footer - adapt if necessary */
     width: 100%;
 }
 #maincontent #start {
