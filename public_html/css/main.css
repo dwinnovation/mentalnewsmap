@@ -19,6 +19,10 @@
     height: 322px!important;
     width:50%!important;
 }
+#resultMap{
+    height: 322px!important;
+    width:100%!important;
+}
 #finish .resultoverview .map{
     background-color: red;
     height: 250px!important;

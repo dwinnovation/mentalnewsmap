@@ -106,8 +106,10 @@ function removeLine() {
     flightPath.setMap(null);
 }
 function showResults() {
-    //Wait for the overlay to load before showing the map
-    $('#myModal').on('shown.bs.dropdown', function() {
+    
+}
+//Wait for the overlay to load before showing the map
+    $('#myModal').on('shown.bs.modal', function() {
         resultMap = new GMaps({
             el: '#resultMap',
             lat: p2.lat(),
@@ -123,6 +125,8 @@ function showResults() {
             mapTypeControl: false,
             overviewMapControl: false
         });
+        $('#distanceAway').text(calcDistance(p1, p2));
+//        alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
         drawPath(resultMap, p1, p2);
         resultMap.addMarker({
             lat: p2.lat(),
@@ -134,11 +138,7 @@ function showResults() {
             lng: p1.lng(),
             title: 'clickPosition'
         });
-    })
-
-    alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
-}
-
+    });
 // Submit button clickHandler
 $('#submitguess').on('click', function(event) {
     showResults();
