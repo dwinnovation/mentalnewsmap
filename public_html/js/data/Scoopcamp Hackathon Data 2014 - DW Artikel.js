@@ -1,4 +1,4 @@
-[ {
+var articles = [ {
   "pubDate" : "2014-08-17",
   "articleTitle" : "Hoffnung auf Ende des Gaza-Kriegs schwindet",
   "teaser" : "Kurz vor Ablauf einer Feuerpause am Montagabend haben Israelis und Palästinenser um Bedingungen für eine dauerhafte Gaza-Waffenruhe gerungen. Doch beide Seiten sind sich in Kairo wohl nicht näher gekommen - im Gegenteil.",
@@ -708,4 +708,4 @@
   "region" : "Deutschland",
   "latitude" : 51.0562,
   "longitude" : 13.733274
-} ]
+} ];
