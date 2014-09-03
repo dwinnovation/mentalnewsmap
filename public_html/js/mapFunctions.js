@@ -159,6 +159,7 @@ $('#nextButton').on('click', function(event) {
     // move current article to set of answered articles
     state.answeredArticles.push(state.currentArticle);
     state.currentArticle = null;
+    $('#submitguess').prop('disabled', true); //Disable the button until the user adds another Marker
     // trigger game workflow for next question/finish
     switchGameState('game');
 });
