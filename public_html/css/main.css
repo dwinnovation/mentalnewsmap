@@ -30,6 +30,7 @@
 #finish .resultoverview .article {
     background-color: black;
     position: relative;
+    margin-bottom: 10px;
 }
 #finish .resultoverview .article .bg-image {
     background-size: cover;
