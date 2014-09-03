@@ -1,7 +1,7 @@
 // enable tab navigation
 $('#tabnav a').click(function(e) {
-  e.preventDefault()
-  $(this).tab('show')
+    e.preventDefault()
+    $(this).tab('show')
 })
 
 var state = {};
@@ -103,22 +103,22 @@ function renderArticle(article, domObjectId) {
 function switchGameState(gameState) {
     console.log("switching game state to " + gameState);
     switch (gameState) {
-    case 'start':
-        initState();
-        $('#tabnav a[href="#start"]').tab('show');
-        break;
-    case 'game':
-        if (state.answeredArticles.length < 5) {
-            showArticle();
-            $('#tabnav a[href="#game"]').tab('show');
-        } else {
-            switchGameState('finish');
-        }
-        break;
-    case 'finish':
-        showFinish();
-        $('#tabnav a[href="#finish"]').tab('show');
-        break;
+        case 'start':
+            initState();
+            $('#tabnav a[href="#start"]').tab('show');
+            break;
+        case 'game':
+            if (state.answeredArticles.length < 5) {
+                showArticle();
+                $('#tabnav a[href="#game"]').tab('show');
+            } else {
+                switchGameState('finish');
+            }
+            break;
+        case 'finish':
+            showFinish();
+            $('#tabnav a[href="#finish"]').tab('show');
+            break;
     }
 }
 
@@ -174,4 +174,11 @@ $(document).ready(function() {
 
     // start the game:
     switchGameState('start');
+
+    //easteregg
+    var easter_egg = new Konami();
+    easter_egg.code = function() {
+        nyancat_start()
+    };
+    easter_egg.load();
 });

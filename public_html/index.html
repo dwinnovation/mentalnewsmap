@@ -68,15 +68,15 @@
                 </div>
             </div>
             <div class="jumbotron tab-pane" id="game">
-                    <div class="col-md-10"></div>
-                    <div id="progress" class="col-md-2 progress">
-                       <div class="progress-bar progress-bar-success" role="progressbar" style="width: 40%;">
-                            <span class="sr-only">2 / 5</span>
-                        </div>
+                <div class="col-md-10"></div>
+                <div id="progress" class="col-md-2 progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width: 40%;">
+                        <span class="sr-only">2 / 5</span>
                     </div>
+                </div>
                 <div id="gamecontainer">
-                        <div class="col-md-6" id="picture"><img src="http://placehold.it/500x322" alt="Picture"/></div>
-                        <div class="col-md-6" id="map"></div>
+                    <div class="col-md-6" id="picture"><img src="http://placehold.it/500x322" alt="Picture"/></div>
+                    <div class="col-md-6" id="map"></div>
                     <div class="row">
                         <div class="col-md-6 largebutton"><button class="btn btn-info btn-block">Wo hat dieses Ereignis stattgefunden?</button></div>
                         <div class="col-md-6 largebutton nopad"><button class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal"  id="submitguess">Antwort prüfen</button></div>
@@ -133,11 +133,10 @@
         <script src="js/data/Scoopcamp Hackathon Data 2014 - DW Artikel.js"></script>
         <script src="js/main.js"></script>
         <script src="js/mapFunctions.js" type="text/javascript"></script>
-    </body>
-
-
-    <!-- Piwik -->
-    <script type="text/javascript">
+        <script src="js/vendor/konami.js" type="text/javascript"></script>
+        <script src="js/vendor/nyan.js/nc.js" type="text/javascript"></script>
+        <!-- Piwik -->
+        <script type="text/javascript">
             var _paq = _paq || [];
             _paq.push(["trackPageView"]);
             _paq.push(["enableLinkTracking"]);
@@ -153,7 +152,8 @@
                 g.src = u + "piwik.js";
                 s.parentNode.insertBefore(g, s);
             })();
-    </script>
-    <!-- /Piwik -->
+        </script>
+        <!-- /Piwik -->
+    </body>
 
 </html>
