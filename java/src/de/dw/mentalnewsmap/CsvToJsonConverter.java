@@ -24,8 +24,8 @@ public class CsvToJsonConverter {
 
 	private File csvInputFile;	
 	
-	public static final String CSV_FILENAME = "../data/Scoopcamp Hackathon Data 2014 - DW Artikel.csv";
-	public static final String JSON_FILENAME = "../data/Scoopcamp Hackathon Data 2014 - DW Artikel.json";
+	public static final String CSV_FILENAME = "../public_html/js/data/Scoopcamp Hackathon Data 2014 - DW Artikel.csv";
+	public static final String JSON_FILENAME = "../public_html/js/data/Scoopcamp Hackathon Data 2014 - DW Artikel.js";
 	
 	public static final char CSV_SEPARATOR = ',';
 	public static final char CSV_QUOTE = '"';
@@ -64,6 +64,8 @@ public class CsvToJsonConverter {
 			// enable pretty-printing of generated json:
 			om.enable(SerializationFeature.INDENT_OUTPUT);
 			om.writeValue(jsonFileWriter, articles);
+			
+			System.out.println(articles.size() + " articles imported");
         } finally {
             if (reader != null) {
             	reader.close();
