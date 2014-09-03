@@ -22,7 +22,9 @@ var mapZoom; //Saves the current map zoom to prevent doubleclick-marker-placemen
 var flightPath; //Saves the direct line between the two points
 var myScore; //The score achieved with the last click
 
+
 $(document).ready(function() {
+$('#submitguess').prop('disabled', true); //prevent modal from opening until user adds a position
     //Initialize Map
     map = new GMaps({
         el: '#map',
@@ -70,6 +72,7 @@ function placeMarker(position) {
             title: 'clickPosition',
             icon: "img/marker_pink.png"
         });
+        $('#submitguess').prop('disabled', false); //enable the submit button
     }
 }
 //Register show map tab event

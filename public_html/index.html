@@ -69,13 +69,10 @@
                 </div>
             </div>
             <div class="jumbotron tab-pane" id="game">
-                <h4>Wo hat dieses Ereignis stattgefunden?</h4>
                 <div id="gamecontainer">
-                    <div class="row">
                         <div class="col-md-6" id="picture"><img src="http://placehold.it/500x322" alt="Picture"/></div>
                         <div class="col-md-6" id="map"></div>
-                    </div>
-                    <div class="row buttonrow">
+                    <div class="row">
                         <div class="col-md-6 largebutton"><button class="btn btn-info btn-block">Wo hat dieses Ereignis stattgefunden?</button></div>
                         <div class="col-md-6 largebutton nopad"><button class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal"  id="submitguess">Antwort prüfen</button></div>
                     </div>
@@ -86,11 +83,11 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-body">
-
                                 <p><span id="yourPosition">Deine Antwort <img src="img/marker_pink.png" alt="Deine Position" /></span> war <strong><span id="distanceAway"></span>km</strong> vom <span id="shownPosition">tatsächlichen Ereignis <img src="img/marker_blue.png" alt="Ereignisposition" /></span> entfernt. Du erhältst <strong><span id="overlayPoints"></span> Punkte.</strong></p>
                                 <div id="resultMap"></div>
                                 <div id="currentResultArticle"></div>
-                                <p><button id="nextButton" type="button" class="btn btn-primary" data-dismiss="modal">Nächste Frage</button></p>
+                                <button id="nextButton" type="button" class="btn btn-primary pull-right" data-dismiss="modal">Nächste Frage</button>
+                                <div class="clearfix"></div>
                             </div>
 
                         </div>
