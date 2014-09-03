@@ -30,12 +30,19 @@ html,body {
 #gamecontainer{
     width:100%;
     /* height:500px; */
-    padding-top: 30px;
+    padding-top: 30px;d
 }
 #gamecontainer .largebutton{
     padding-top: 15px;
 }
-.largebutton.nopad{
+#gamecontainer .btn-info{
+    background-color:#dd1c77;
+    border: #dd1c77;
+}
+.large
+#gamecontainer .btn-info:hover{
+    cursor:pointer;
+}button.nopad{
     padding-left:0;
     padding-right: 15px;
 }
@@ -79,7 +86,7 @@ html,body {
     width:100%!important;
 }
 #myModal #yourPosition{
-    color:red;
+    color:#dd1c77;
 }
 #myModal #yourPosition img, #myModal #shownPosition img{
     height: 20px;
@@ -147,3 +154,4 @@ html,body {
     padding-top: 40px;
     cursor: pointer;
 }
+
