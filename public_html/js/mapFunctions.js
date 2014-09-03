@@ -54,14 +54,7 @@ $(document).ready(function() {
 function resize() {
     mapObj = map;
     google.maps.event.trigger(mapObj.map, 'resize');
-    
-//        Center on first Marker on resize
-//        
-//        var ob = mapObj.map.markers.position.ob;
-//        var pb = mapObj.map.markers.position.pb;
-//        latLongShit = new google.maps.LatLng(ob, pb);
-//        mapObj.map.setCenter(latLongShit);
 }
-$('a[href="#jumbogame"]').on('shown.bs.tab', function(e) {
+$('a[href="#game"]').on('shown.bs.tab', function(e) {
     resize();
 });
