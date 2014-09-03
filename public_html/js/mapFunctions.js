@@ -51,8 +51,8 @@ $('#submitguess').prop('disabled', true); //prevent modal from opening until use
 });
 
 // Fix Map Resize on navigation
-function resize() {
-    mapObj = map;
+function resize(m) {
+    mapObj = m;
     google.maps.event.trigger(mapObj.map, 'resize');
 }
 //Places a marker
@@ -77,7 +77,7 @@ function placeMarker(position) {
 }
 //Register show map tab event
 $('a[href="#game"]').on('shown.bs.tab', function(e) {
-    resize();
+    resize(map);
 });
 
 //calculates distance between two points in km's
@@ -159,6 +159,7 @@ $('#nextButton').on('click', function(event) {
     // move current article to set of answered articles
     state.answeredArticles.push(state.currentArticle);
     state.currentArticle = null;
+
     $('#submitguess').prop('disabled', true); //Disable the button until the user adds another Marker
     // trigger game workflow for next question/finish
     switchGameState('game');

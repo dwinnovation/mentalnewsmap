@@ -82,10 +82,10 @@ html,body {
 #myModal #shownPosition{
     color:blue;
 }
-#finish .resultoverview .map{
+#finish .resultoverview #endResultMap{
     background-color: red;
-    height: 250px!important;
-    width:50%!important;
+    height: 300px!important;
+    width:100%!important;
 }
 #finish .resultoverview .points,.totalpoints {
     font-weight: bold;

@@ -17,29 +17,29 @@ function initState() {
         remainingArticles: [],
         answeredArticles: [],
     };
-    
+
     // mock data for design:
-    state.results.push({
-        p1: new google.maps.LatLng(33.7243396617476, 36.9140625),
-        p2: new google.maps.LatLng(47.99659, 37.815894999999955)
-    });
-    state.results.push({
-        p1: new google.maps.LatLng(8.059229627200192, -71.71875),
-        p2: new google.maps.LatLng(38.76306, -90.2799)
-    });
-    state.results.push({
-        p1: new google.maps.LatLng(3.1624555302378474, 19.6875),
-        p2: new google.maps.LatLng(7.963092, 30.158930000000055)
-    });
-    state.results.push({
-        p1: new google.maps.LatLng(22.268764039073965, 18.6328125),
-        p2: new google.maps.LatLng(38.73899, -90.275375)
-    });
-    state.results.push({
-        p1: new google.maps.LatLng(34.016241889667015, -91.0546875),
-        p2: new google.maps.LatLng(38.76306, -90.2799)
-    });
-    state.answeredArticles = articles.splice(0,5);
+//    state.results.push({
+//        p1: new google.maps.LatLng(33.7243396617476, 36.9140625),
+//        p2: new google.maps.LatLng(47.99659, 37.815894999999955)
+//    });
+//    state.results.push({
+//        p1: new google.maps.LatLng(8.059229627200192, -71.71875),
+//        p2: new google.maps.LatLng(38.76306, -90.2799)
+//    });
+//    state.results.push({
+//        p1: new google.maps.LatLng(3.1624555302378474, 19.6875),
+//        p2: new google.maps.LatLng(7.963092, 30.158930000000055)
+//    });
+//    state.results.push({
+//        p1: new google.maps.LatLng(22.268764039073965, 18.6328125),
+//        p2: new google.maps.LatLng(38.73899, -90.275375)
+//    });
+//    state.results.push({
+//        p1: new google.maps.LatLng(34.016241889667015, -91.0546875),
+//        p2: new google.maps.LatLng(38.76306, -90.2799)
+//    });
+//    state.answeredArticles = articles.splice(0, 5);
 }
 
 /**
@@ -121,7 +121,7 @@ function renderArticle(article, domObjectId) {
 }
 /**
  * Main game workflow function
- * @param state
+ * @param gameState
  */
 function switchGameState(gameState) {
     console.log("switching game state to " + gameState);
@@ -141,6 +141,7 @@ function switchGameState(gameState) {
         case 'finish':
             showFinish();
             $('#tabnav a[href="#finish"]').tab('show');
+            updateEndResults();
             break;
     }
 }
@@ -190,12 +191,62 @@ function initJumboFinish() {
     });
 }
 
+function updateEndResults() {
+
+    endResultMap = new GMaps({
+        el: '#endResultMap',
+        lat: 72.91963546581482,
+        lng: -75.05859375,
+        zoom: 10,
+        zoomControl: true,
+        zoomControlOpt: {
+            style: 'SMALL',
+            position: 'TOP_LEFT'
+        },
+        panControl: false,
+        streetViewControl: false,
+        mapTypeControl: false,
+        overviewMapControl: false
+    });
+    if (typeof (state.results) !== 'undefined') {
+        $('.points').text(state.points);
+        var bounds=[]; // Map boundaries
+        $.each(state.results, function(index, point) {
+            endResultMap.addMarker({
+                lat: point.p1.lat(),
+                lng: point.p1.lng(),
+                title: 'clickPosition',
+                icon: "img/marker_pink.png"
+            });
+            endResultMap.addMarker({
+                lat: point.p2.lat(),
+                lng: point.p2.lng(),
+                title: 'articlePosition',
+                icon: "img/marker_blue.png"
+            });
+            drawPath(endResultMap, point.p1, point.p2);
+            bounds.push(point.p1);
+            bounds.push(point.p2);
+        });
+//        console.log(JSON.stringify(bounds));
+        resize(endResultMap);
+        endResultMap.fitLatLngBounds(bounds);
+    }
+}
+
 $(document).ready(function() {
     // add code to run after page load here
     initJumboStart();
     initJumboFinish();
 
+    //easteregg
+    var easter_egg = new Konami();
+    easter_egg.code = function() {
+        nyancat_start();
+    };
+    easter_egg.load();
+
     // start the game:
-    // switchGameState('start');
-    switchGameState('finish');
+     switchGameState('start');
+//    switchGameState('finish');
 });
