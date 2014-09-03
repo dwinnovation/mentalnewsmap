@@ -140,3 +140,10 @@ html,body {
 #finish .headline {
     font-size: 1.5em;
 }
+#finish .socialconnector {
+    padding-top: 50px;
+}
+#finish .socialconnector .shareicons {
+    padding-top: 40px;
+    cursor: pointer;
+}

@@ -188,6 +188,9 @@ function initJumboFinish() {
     $('#playagain').click(function() {
         switchGameState('start');
     });
+    $('#link-twitter').click(function(){
+        // TODO
+    });
 }
 
 $(document).ready(function() {
