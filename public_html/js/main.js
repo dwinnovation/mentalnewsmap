@@ -115,9 +115,6 @@ function switchGameState(gameState) {
             switchGameState('finish');
         }
         break;
-    case 'result':
-        // TODO
-        break;
     case 'finish':
         showFinish();
         $('#tabnav a[href="#finish"]').tab('show');
