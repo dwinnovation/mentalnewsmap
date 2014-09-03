@@ -78,8 +78,6 @@ function showArticle() {
 }
 
 function showFinish() {
-    // TODO: remove this - dummy content!
-    state.answeredArticles = articles.slice(0, 5);
     // update score:
     $('#finish .resultoverview .points').text(state.points);
     // make sure the template is hidden:
