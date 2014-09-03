@@ -144,7 +144,12 @@ function removeLine() {
 // Submit button clickHandler
 $('#nextButton').on('click', function(event) {
     $('#resultMap').empty(); //Remove resultMap to get rid of the lines
-    map.removeMarkers();
+    // save result:
+    state.results.push({
+        p1: p1,
+        p2: p2,
+        score: myScore
+    });
     // add points:
     state.points += myScore;
     // move current article to set of answered articles
