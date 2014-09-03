@@ -80,16 +80,20 @@ function showFinish() {
  * Main game workflow function
  * @param state
  */
-function switchGameState(state) {
-    console.log("switching game state to " + state);
-    switch (state) {
+function switchGameState(gameState) {
+    console.log("switching game state to " + gameState);
+    switch (gameState) {
     case 'start':
         initState();
         $('#tabnav a[href="#start"]').tab('show');
         break;
     case 'game':
-        showArticle();
-        $('#tabnav a[href="#game"]').tab('show');
+        if (state.answeredArticles.length < 5) {
+            showArticle();
+            $('#tabnav a[href="#game"]').tab('show');
+        } else {
+            switchGameState('finish');
+        }
         break;
     case 'result':
         // TODO

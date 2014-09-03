@@ -20,6 +20,7 @@ var p2; //Position where the picture was taken
 var location; //current position
 var mapZoom; //Saves the current map zoom to prevent doubleclick-marker-placement
 var flightPath; //Saves the direct line between the two points
+var myScore; //The score achieved with the last click
 
 $(document).ready(function() {
     //Initialize Map
@@ -123,7 +124,10 @@ function removeLine() {
             mapTypeControl: false,
             overviewMapControl: false
         });
-        $('#distanceAway').text(calcDistance(p1, p2));
+        var distance = calcDistance(p1, p2);
+        myScore = score(distance);
+        $('#distanceAway').text(distance);
+        $('#overlayPoints').text(myScore);
         drawPath(resultMap, p1, p2);
         resultMap.addMarker({
             lat: p2.lat(),
@@ -141,4 +145,11 @@ function removeLine() {
 // Submit button clickHandler
 $('#nextButton').on('click', function(event) {
     $('#resultMap').empty(); //Remove resultMap to get rid of the lines
+    // add points:
+    state.points += myScore;
+    // move current article to set of answered articles
+    state.answeredArticles.push(state.currentArticle);
+    state.currentArticle = null;
+    // trigger game workflow for next question/finish
+    switchGameState('game');
 });
