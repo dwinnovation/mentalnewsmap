@@ -86,7 +86,7 @@ function calcDistance(p1, p2) {
 }
 
 //creates a new path to draw
-function drawPath(p1, p2) {
+function drawPath(map, p1, p2) {
     path = [p1, p2];
     flightPath = new google.maps.Polyline({
         path: path,
@@ -94,10 +94,10 @@ function drawPath(p1, p2) {
         strokeOpacity: 1,
         strokeWeight: 4
     });
-    addLine();
+    addLine(map);
 }
 //actually shows the path on the map
-function addLine() {
+function addLine(map) {
     flightPath.setMap(map.map);
 }
 
@@ -106,12 +106,36 @@ function removeLine() {
     flightPath.setMap(null);
 }
 function showResults() {
-    drawPath(p1, p2);
-    map.addMarker({
-        lat: p2.lat(),
-        lng: p2.lng(),
-        title: 'articlePosition'
-    });
+    //Wait for the overlay to load before showing the map
+    $('#myModal').on('shown.bs.dropdown', function() {
+        resultMap = new GMaps({
+            el: '#resultMap',
+            lat: p2.lat(),
+            lng: p2.lng(),
+            zoom: 2,
+            zoomControl: true,
+            zoomControlOpt: {
+                style: 'SMALL',
+                position: 'TOP_LEFT'
+            },
+            panControl: false,
+            streetViewControl: false,
+            mapTypeControl: false,
+            overviewMapControl: false
+        });
+        drawPath(resultMap, p1, p2);
+        resultMap.addMarker({
+            lat: p2.lat(),
+            lng: p2.lng(),
+            title: 'articlePosition'
+        });
+        resultMap.addMarker({
+            lat: p1.lat(),
+            lng: p1.lng(),
+            title: 'clickPosition'
+        });
+    })
+
     alert(calcDistance(p1, p2) + 'km vom Ziel entfernt.');
 }
 
