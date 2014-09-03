@@ -4,19 +4,11 @@
    Author's custom styles
    ========================================================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#picture{
+    height: 500px!important;
+    width:50%!important;
+}
+#map{
+    height: 500px!important;
+    width:50%!important;
+}
