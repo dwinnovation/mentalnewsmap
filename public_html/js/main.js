@@ -18,6 +18,28 @@ function initState() {
     };
 }
 
+/**
+ * Get a score for the specified distance. Guesses close to the real value (small distance) get a better score, guesses further away get less points.
+ * The maximum number of points is 100, minimum number 0.
+ * @param distancee
+ */
+function score(distance) {
+    if (distance < 0.1) {
+        // less than 100m: full points
+        return 100.0;
+    } else if (distance > 100.0) {
+        // more than 100km: 0 points
+        return 0;
+    } else {
+        // normalize value to range 1..0:
+        var val = (1-((distance-0.1)/100.0));
+        // apply curve (TODO: balance):
+        var val = val*val;
+        // scale to range 100..0, round up:
+        return Math.ceil(100.0*val);
+    }
+}
+
 function showArticle() {
     // select random article from remaining:
     var i = Math.floor(Math.random() * state.remainingArticles.length);
