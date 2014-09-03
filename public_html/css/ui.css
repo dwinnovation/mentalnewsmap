@@ -1,3 +1,8 @@
+.jumbotron {
+    color: inherit;
+    background-color: #FFFFFF;
+}
+
 .navbar-inverse {
     background-color: #0098FF;
     border-color: #0098FF;
