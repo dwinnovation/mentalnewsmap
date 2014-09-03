@@ -42,6 +42,8 @@ function score(distance) {
 }
 
 function showArticle() {
+    // update progress bar:
+    $('#progress .progress-bar').css('width', state.answeredArticles.length * 20 + "%");
     // select random article from remaining:
     var i = Math.floor(Math.random() * state.remainingArticles.length);
     // extract and move to currentArticle
@@ -112,9 +114,6 @@ function switchGameState(gameState) {
         } else {
             switchGameState('finish');
         }
-        break;
-    case 'result':
-        // TODO
         break;
     case 'finish':
         showFinish();
