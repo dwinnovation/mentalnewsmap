@@ -4,6 +4,24 @@
    Author's custom styles
    ========================================================================== */
 
+html,body {
+    margin: 0;
+    height: 100%;
+}
+#maincontent{
+    position: absolute;
+    top: 0;
+    bottom: 50px; /* fixed height for footer - adapt if necessary */
+    width: 100%;
+}
+#maincontent #start {
+    height: 100%;
+}
+#footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
 #gamecontainer{
     width:100%;
     height:500px;
@@ -18,6 +36,22 @@
 #map{
     height: 322px!important;
     width:50%!important;
+}
+
+#start {
+    background: url(../img/bg.jpg) bottom center;
+    background-size: cover;
+    color: white;
+}
+#start #choosecategory {
+    width: auto;
+    margin: 0 auto;
+}
+#start .row, #start .row div {
+    height: 100%;
+}
+#start .row .centered {
+    padding-top: 150px;
 }
 #resultMap{
     height: 322px!important;
