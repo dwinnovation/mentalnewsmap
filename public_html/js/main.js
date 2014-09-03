@@ -39,6 +39,7 @@ function initState() {
         p1: new google.maps.LatLng(34.016241889667015, -91.0546875),
         p2: new google.maps.LatLng(38.76306, -90.2799)
     });
+    state.answeredArticles = articles.splice(0,5);
 }
 
 /**
@@ -195,12 +196,6 @@ $(document).ready(function() {
     initJumboFinish();
 
     // start the game:
-    switchGameState('start');
-
-    //easteregg
-    var easter_egg = new Konami();
-    easter_egg.code = function() {
-        nyancat_start()
-    };
-    easter_egg.load();
+    // switchGameState('start');
+    switchGameState('finish');
 });
