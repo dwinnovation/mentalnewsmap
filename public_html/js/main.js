@@ -17,6 +17,28 @@ function initState() {
         remainingArticles: [],
         answeredArticles: [],
     };
+    
+    // mock data for design:
+    state.results.push({
+        p1: new google.maps.LatLng(33.7243396617476, 36.9140625),
+        p2: new google.maps.LatLng(47.99659, 37.815894999999955)
+    });
+    state.results.push({
+        p1: new google.maps.LatLng(8.059229627200192, -71.71875),
+        p2: new google.maps.LatLng(38.76306, -90.2799)
+    });
+    state.results.push({
+        p1: new google.maps.LatLng(3.1624555302378474, 19.6875),
+        p2: new google.maps.LatLng(7.963092, 30.158930000000055)
+    });
+    state.results.push({
+        p1: new google.maps.LatLng(22.268764039073965, 18.6328125),
+        p2: new google.maps.LatLng(38.73899, -90.275375)
+    });
+    state.results.push({
+        p1: new google.maps.LatLng(34.016241889667015, -91.0546875),
+        p2: new google.maps.LatLng(38.76306, -90.2799)
+    });
 }
 
 /**

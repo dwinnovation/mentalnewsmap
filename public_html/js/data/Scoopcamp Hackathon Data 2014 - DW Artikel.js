@@ -369,6 +369,16 @@ var articles = [ {
   "latitude" : 6.3273,
   "longitude" : -10.8064
 }, {
+  "pubDate" : "2014-08-19",
+  "articleTitle" : "US-Justizminister Holder sichert in Ferguson faire Untersuchung zu",
+  "teaser" : "Seit dem Tod eines schwarzen Teenagers in Ferguson prägen Unruhen das Bild der US-Kleinstadt. Um die Lage zu entschärfen, stattete Justizminister Holder dem Ort einen Besuch ab - mit einem Versprechen im Gepäck.",
+  "articleUrl" : "http://www.dw.de/us-justizminister-holder-sichert-in-ferguson-faire-untersuchung-zu/a-17868605",
+  "imageUrl" : "http://www.dw.de/image/0,,17868609_303,00.jpg",
+  "kategorie" : "Krise",
+  "region" : "Nordamerika",
+  "latitude" : 38.73899,
+  "longitude" : -90.275375
+}, {
   "pubDate" : "2014-08-20",
   "articleTitle" : "In Islands Vulkan Bárðarbunga brodelt es",
   "teaser" : "Europa schaut ängstlich nach Island: Seit Samstag bebt die Erde rund um einen der größten Vulkane dort. Könnte bald eine neue Aschewolke Europas Flugverkehr lahmlegen? Die Antwort gibt's hier. ",
