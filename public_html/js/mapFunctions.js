@@ -147,6 +147,7 @@ function removeLine() {
 // Submit button clickHandler
 $('#nextButton').on('click', function(event) {
     $('#resultMap').empty(); //Remove resultMap to get rid of the lines
+    map.removeMarkers(); //remove the old Marker from the Map
     // save result:
     state.results.push({
         p1: p1,
