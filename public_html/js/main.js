@@ -53,18 +53,18 @@ function showFinish() {
         $('#finish .resultoverview').append(div);
     });
 }
-function renderArticle(article, domObjectId) {
+function renderArticle(article, domObjectId) { 
     $('#finish .resultoverview .article.template').hide();
     // remove previous results:
     $('#finish .resultoverview .article').not('.template').remove();
-    console.log("generating one article and rendering to " + domObjectId);
+    console.log("generating Article: "+article[0].articleTitle+" and rendering to " + domObjectId);
     // clone template div:
     var div = $('#finish .resultoverview .article.template').clone().removeClass('template');
     // fill text fields:
-    div.find('.text .headline').text(article.articleTitle);
-    div.find('.text .teasertext').text(article.teaser);
-    div.find('.text a.more').prop('href', article.articleUrl);
-    div.find('.bg-image').css('background', 'url(' + article.imageUrl + ') center center');
+    div.find('.text .headline').text(article[0].articleTitle);
+    div.find('.text .teasertext').text(article[0].teaser);
+    div.find('.text a.more').prop('href', article[0].articleUrl);
+    div.find('.bg-image').css('background', 'url(' + article[0].imageUrl + ') center center');
     // append to selected domObj:
     div.show();
     $(domObjectId).append(div);

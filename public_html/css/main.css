@@ -72,12 +72,12 @@ html,body {
 #finish .resultoverview .points,.totalpoints {
     font-weight: bold;
 }
-#finish .resultoverview .article {
+.article {
     background-color: black;
     position: relative;
     margin-bottom: 10px;
 }
-#finish .resultoverview .article .bg-image {
+.article .bg-image {
     background-size: cover;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
@@ -87,18 +87,18 @@ html,body {
 #finish .resultoverview .article.template .bg-image {
     background: url(http://www.dw.de/image/0,,17859820_303,00.jpg) center center;
 }
-#finish .resultoverview .article .text {
+.article .text {
     position: relative;
     color: white;
     z-index: 2;
     padding: 15px;
 }
-#finish .resultoverview .article .text .headline{
+.article .text .headline{
     display: block;
     font-size: 1.5em;
     font-weight: bold;
 }
-#finish .resultoverview .article .text .more{
+.article .text .more{
     margin-left: 15px;
     color: white;
 }
