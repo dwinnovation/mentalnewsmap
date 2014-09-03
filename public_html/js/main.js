@@ -12,7 +12,7 @@ var state = {};
 function initState() {
     state = {
         points: 0,
-        results: {},
+        results: [],
         currentArticle: {},
         remainingArticles: [],
         answeredArticles: [],
