@@ -232,7 +232,7 @@ function updateEndResults() {
     }
 }
 $('#link-twitter').click(function() {
-    var text='Ich habe ' + state.points + ' von 500 Punkten bei #TheMentalNewsMap erreicht. Weißt du mehr? http://bit.ly/codebeatspaper';
+    var text='Ich habe ' + state.points + ' von 500 Punkten bei #TheMentalNewsMap erreicht. Weißt du mehr? http://bit.ly/scoophack';
     window.location.href='http://twitter.com/share?text='+encodeURIComponent(text);
 });
 
