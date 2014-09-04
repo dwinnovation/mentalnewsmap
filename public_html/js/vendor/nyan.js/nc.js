@@ -6,7 +6,7 @@
     var url = location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'js/vendor/nyan.js';
 
     var shiftPressed = 0;   // counter of key presses
-    var shiftMax = 5000;   // when pressed that many times sequentially, start animation
+    var shiftMax = 4;   // when pressed that many times sequentially, start animation
     var keyCode = 16; // shift key
     var animationDuration = 9000; // number of milliseconds the animation will take
 
