@@ -59,16 +59,6 @@ var articles = [ {
   "latitude" : 24.82,
   "longitude" : 93.95
 }, {
-  "pubDate" : "2014-08-19",
-  "articleTitle" : "Deutscher in China zum Tode verurteilt",
-  "teaser" : "Es war ein Eifersuchtsdrama, das in China ein blutiges Ende fand: Ein Deutscher metzelte vor vier Jahren seine Ex-Freundin und deren Lebensgefährten nieder. Jetzt hat ihn ein chinesisches Gericht zum Tode verurteilt.",
-  "articleUrl" : "http://www.dw.de/deutscher-in-china-zum-tode-verurteilt/a-17864537",
-  "imageUrl" : "http://www.dw.de/image/0,,15845683_303,00.jpg",
-  "kategorie" : "Ausland",
-  "region" : "Asien",
-  "latitude" : 24.479834,
-  "longitude" : 118.089424
-}, {
   "pubDate" : "2014-08-20",
   "articleTitle" : "Thailands Juntachef läßt sich zum Ministerpräsidenten wählen",
   "teaser" : "Drei Monate nach dem Militärputsch in Thailand übernimmt Juntachef Prayuth Chan-ocha die Regierungsgeschäfte. Die vom Militär eingesetzte gesetzgebende Versammlung wählte ihn zum Ministerpräsidenten. ",
