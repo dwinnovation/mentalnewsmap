@@ -1,5 +1,5 @@
 /* 
- * Copyright 2014 X201.
+ * Copyright 2014 Milan Burgmann.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ var myScore; //The score achieved with the last click
 
 
 $(document).ready(function() {
-$('#submitguess').prop('disabled', true); //prevent modal from opening until user adds a position
+    $('#submitguess').prop('disabled', true); //prevent modal from opening until user adds a position
     //Initialize Map
     map = new GMaps({
         el: '#map',
@@ -50,14 +50,23 @@ $('#submitguess').prop('disabled', true); //prevent modal from opening until use
     });
 });
 
-// Fix Map Resize on navigation
+/**
+ * Resizes the map 'm' to its window
+ * This was needed because the maps are changing in size after switching to the
+ * containing bootstrap tab and were displayed too small
+ * @param m is a Gmaps.js map object
+ */
 function resize(m) {
     mapObj = m;
     google.maps.event.trigger(mapObj.map, 'resize');
 }
-//Places a marker
+
+/**
+ * Places a Marker at 'position'
+ * @param position expects a 'Google.maps.LatLng' Object
+ */
 function placeMarker(position) {
-    if (mapZoom == map.getZoom()) {
+    if (mapZoom === map.getZoom()) {
         var lat = position.lat();
         var lng = position.lng();
         clickPosition = JSON.parse('{"lat":"' + lat + '","lng":"' + lng + '"}');
@@ -75,17 +84,29 @@ function placeMarker(position) {
         $('#submitguess').prop('disabled', false); //enable the submit button
     }
 }
-//Register show map tab event
+//This resizes the Map once the game is shown
 $('a[href="#game"]').on('shown.bs.tab', function(e) {
     resize(map);
 });
 
-//calculates distance between two points in km's
+/**
+ * Calculates the distance between two points 'p1' and 'p2'
+ * @param {google.maps.LatLng} p1 The first location
+ * @param {google.maps.LatLng} p2 The second location
+ * @returns {Float} the distance in km
+ */
 function calcDistance(p1, p2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
 }
 
 //creates a new path to draw
+/**
+ * Draws a line between two given locations on a given map
+ * and sets the boundaries of the map to show the two locations in the window
+ * @param {GMAPS.map} map expects a GMAPS.map Object containing a map
+ * @param {google.maps.LatLng} p1 the first location
+ * @param {google.maps.LatLng} p2 the second location
+ */
 function drawPath(map, p1, p2) {
     path = [p1, p2];
     flightPath = new google.maps.Polyline({
@@ -97,54 +118,64 @@ function drawPath(map, p1, p2) {
     map.fitLatLngBounds([p1, p2]);
     addLine(map);
 }
-//actually shows the path on the map
+
+/**
+ * Adds a line created by drawPath() to a given map
+ * @param {GMAPS.map} map expects a GMAPS.map Object
+ */
 function addLine(map) {
     flightPath.setMap(map.map);
 }
 
 //removes the line on the map
+/**
+ * Removes the line created with drawPath() from the map it is currently on
+ */
 function removeLine() {
     flightPath.setMap(null);
 }
-//Showing Result overlay
+
+//Showing Result overlay after submitting a guess
+//It shows you your score this round and the map with both locations
 //Wait for the overlay to load before showing the map
-    $('#myModal').on('shown.bs.modal', function() {
-        resultMap = new GMaps({
-            el: '#resultMap',
-            lat: p2.lat(),
-            lng: p2.lng(),
-            zoom: 2,
-            zoomControl: true,
-            zoomControlOpt: {
-                style: 'SMALL',
-                position: 'TOP_LEFT'
-            },
-            panControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            overviewMapControl: false
-        });
-        var distance = calcDistance(p1, p2);
-        myScore = score(distance);
-        $('#distanceAway').text(distance);
-        $('#overlayPoints').text(myScore);
-        drawPath(resultMap, p1, p2);
-        resultMap.addMarker({
-            lat: p2.lat(),
-            lng: p2.lng(),
-            title: 'articlePosition',
-            icon: "img/marker_blue.png"
-        });
-        resultMap.addMarker({
-            lat: p1.lat(),
-            lng: p1.lng(),
-            title: 'clickPosition',
-            icon: "img/marker_pink.png"
-        });
-        //Render current Article
-        renderArticle(state.currentArticle, '#currentResultArticle');
+$('#myModal').on('shown.bs.modal', function() {
+    resultMap = new GMaps({
+        el: '#resultMap',
+        lat: p2.lat(),
+        lng: p2.lng(),
+        zoom: 2,
+        zoomControl: true,
+        zoomControlOpt: {
+            style: 'SMALL',
+            position: 'TOP_LEFT'
+        },
+        panControl: false,
+        streetViewControl: false,
+        mapTypeControl: false,
+        overviewMapControl: false
     });
-// Submit button clickHandler
+    var distance = calcDistance(p1, p2);
+    myScore = score(distance);
+    $('#distanceAway').text(distance);
+    $('#overlayPoints').text(myScore);
+    drawPath(resultMap, p1, p2);
+    resultMap.addMarker({
+        lat: p2.lat(),
+        lng: p2.lng(),
+        title: 'articlePosition',
+        icon: "img/marker_blue.png"
+    });
+    resultMap.addMarker({
+        lat: p1.lat(),
+        lng: p1.lng(),
+        title: 'clickPosition',
+        icon: "img/marker_pink.png"
+    });
+    //Render current Article to the result overlay
+    renderArticle(state.currentArticle, '#currentResultArticle');
+});
+
+// Next button clickHandler
 $('#nextButton').on('click', function(event) {
     $('#resultMap').empty(); //Remove resultMap to get rid of the lines
     map.removeMarkers(); //remove the old Marker from the Map
