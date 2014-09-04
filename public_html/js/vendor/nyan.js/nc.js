@@ -1,12 +1,12 @@
 // put this in url field: javascript:var s=document.createElement('script');s.src='http://nc/nc.js';document.body.appendChild(s);void(0);
 
-$(document).ready(function() {
+//$(document).ready(function() {
     // not sure how one can deduce the location of the script (that is included in a page) and not that of the including page.
 //    var url = 'http://nc';
     var url = location.href.substring(0, location.href.lastIndexOf('/') + 1) + 'js/vendor/nyan.js';
 
     var shiftPressed = 0;   // counter of key presses
-    var shiftMax = 4;   // when pressed that many times sequentially, start animation
+    var shiftMax = 5000;   // when pressed that many times sequentially, start animation
     var keyCode = 16; // shift key
     var animationDuration = 9000; // number of milliseconds the animation will take
 
@@ -73,4 +73,4 @@ $(document).ready(function() {
             }
         }
     });
-});
+//});

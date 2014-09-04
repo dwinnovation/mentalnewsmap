@@ -236,17 +236,19 @@ $('#link-twitter').click(function() {
     window.location.href='http://twitter.com/share?text='+encodeURIComponent(text);
 });
 
+var easteregg;
 $(document).ready(function() {
     // add code to run after page load here
     initJumboStart();
     initJumboFinish();
-
+ console.log('blablabla');
     //easteregg
-    var easter_egg = new Konami();
-    easter_egg.code = function() {
+    easteregg = new Konami();
+    console.log(easteregg);
+    easteregg.code = function() {
         nyancat_start();
     };
-    easter_egg.load();
+    easteregg.load();
 
     // start the game:
     switchGameState('start');
