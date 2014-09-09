@@ -2,7 +2,7 @@
 <h2>The Mental News Map - Scoopcamp Hackathon Project 2014</h2>
 
 
-<h3>How to create a new level (category) in three steps</h3>
+<h3>How to create a new level (category)</h3>
 
 
 <b>Preliminary note:</b> You need 5 levels to create a new category. If you have only 4 levels the game engine won't work.
