@@ -7,9 +7,9 @@
 
 <b>Preliminary note:</b> You need 5 level to create a new category. If you have only 4 level the game engine won't work.
 
-Setting up your csv file (public_html/data/article_data.csv)
+Setting up your csv file (public_html/data/article_data.csv)<br>
 
-<b>What You Need to Define:</b>
+<h3>What You Need to Define:</h3>
 
 <b>PubDate</b>: e.g. <code>24.07.2014</code><br><br>
 <b>Artikel_Title</b>: e.g. <code>Tough decision ahead on eastern Ukraine</code><br><br>
