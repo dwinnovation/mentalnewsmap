@@ -11,15 +11,15 @@ Setting up your csv file (public_html/data/article_data.csv)<br>
 
 <h3>What You Need to Define:</h3>
 
-<b>PubDate</b>: e.g. <code>24.07.2014</code><br><br>
-<b>Artikel_Title</b>: e.g. <code>Tough decision ahead on eastern Ukraine</code><br><br>
-<b>Teaser:</b>: e.g. <code>The status of the territories of Donetsk and Luhansk will be high on the agenda, should the ceasefire in Ukraine hold. Kyiv wishes to avoid a frozen conflict like the one in Transnistria.</code><br><br>
-<b>Artikel_URL</b>: e.g. <code>http://www.dw.de/tough-decision-ahead-on-status-of-eastern-ukraine/a-17909314</code><br><br>
-<b>Image_URL</b>: e.g. <code>http://www.dw.de/image/0,,17907942_303,00.jpg</code><br><br>
-<b>Kategorie</b>: e.g. <code> Sports, Politics ... You need 5 game level to create a new category. If you have only 4 game level the game engine won't work!!!</code><br><br>
-<b>Region</b>: e.g. <code>Africa, Latin America ... </code><br><br>
-<b>Latitude</b>: e.g. <code>56.949649</code><br><br>
-<b>Longitude</b>: e.g. <code>24.105186</code><br><br>
+<b>PubDate</b>: e.g. <code>24.07.2014</code><br>
+<b>Artikel_Title</b>: e.g. <code>Tough decision ahead on eastern Ukraine</code><br>
+<b>Teaser:</b>: e.g. <code>The status of the territories of Donetsk and Luhansk will be high on the agenda, should the ceasefire in Ukraine hold. Kyiv wishes to avoid a frozen conflict like the one in Transnistria.</code><br>
+<b>Artikel_URL</b>: e.g. <code>http://www.dw.de/tough-decision-ahead-on-status-of-eastern-ukraine/a-17909314</code><br>
+<b>Image_URL</b>: e.g. <code>http://www.dw.de/image/0,,17907942_303,00.jpg</code><br>
+<b>Kategorie</b>: e.g. <code> Sports, Politics ... You need 5 game level to create a new category. If you have only 4 game level the game engine won't work!!!</code><br>
+<b>Region</b>: e.g. <code>Africa, Latin America ... </code><br>
+<b>Latitude</b>: e.g. <code>56.949649</code><br>
+<b>Longitude</b>: e.g. <code>24.105186</code><br>
 
 
 
