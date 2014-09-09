@@ -1,6 +1,5 @@
 ======================================================
 <h2>The Mental News Map - Scoopcamp Hackathon Project 2014</h2>
-======================================================
 
 
 <h3>How to create a new level (category) in three steps</h3>
