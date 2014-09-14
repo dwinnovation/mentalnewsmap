@@ -21,7 +21,7 @@ Setting up your csv file (public_html/data/article_data.csv)<br>
 <b>Latitude</b>: e.g. <code>56.949649</code><br>
 <b>Longitude</b>: e.g. <code>24.105186</code><br>
 
-
+<br><br>
 <b>The MIT License (MIT)</b>
 
 Copyright (c) 2013-2014
